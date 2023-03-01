@@ -4,5 +4,5 @@ You can enter the key, CRS and WSDL version easily.
 They will be put in the right position of the envelope and data will be get automaticly.
 A .exe version is also included.
 
-here are some screenshots and detailed description
+some screenshots and detailed description coming soon
 
