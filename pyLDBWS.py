@@ -10,7 +10,7 @@ def errormsg(text):
     ferror.place(x=0, y=0)
     terror.place(x=0, y=0)
     terror.config(state='normal', height=10, width=50, bg='red')
-    terror.delete('1.0', tkinter.END)
+    
     terror.insert(tkinter.END, 'error!\n')
     terror.insert(tkinter.END, text+'\n')
     terror.config(state='disabled')
@@ -129,8 +129,12 @@ def send(LDB_TOKEN, choosecrs, WSDL):
     lout.place(x=20, y=20)
     lt = tkinter.Label(f1, text='thank you for using pyLDBWS')
     lt.place(x=20, y=50)
+    ldis = tkinter.Label(f1,text='if you have any suggestions, comments, or have found any bugs,')
+    ldis2 = tkinter.Label(f1,text='feel free to let me know on GitHub repository discussion.')
+    ldis.place(x=20,y=70)
+    ldis2.place(x=20,y=90)
     bfull = tkinter.Button(f1, text='output full data')
-    bfull.place(x=20, y=80)
+    bfull.place(x=20, y=120)
     bfull['command'] = lambda arg1=services: fullout(arg1)
     bmain = tkinter.Button(f1, text='main menu', command=f1.place_forget)
     bmain.place(x=20, y=170)
@@ -139,6 +143,9 @@ def send(LDB_TOKEN, choosecrs, WSDL):
 
 
 def check():
+    terror.config(state='normal')
+    terror.delete('1.0', tkinter.END)
+    terror.config(state='disabled')
     ok = True
     key = ekey.get()
     if key == '' or key == 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx':
@@ -148,25 +155,28 @@ def check():
 
     elif len(key) != 36:
         errormsg('the key should be 36 characters, including dash')
+        ekey.config(bg='red')
         ok = False
     crs = ecrs.get()
     crs = crs.upper()
-    crs = 'RDG'
+
     if crs == '':
         errormsg('no CRS')
         ecrs.config(bg='red')
         ok = False
     elif len(crs) != 3:
         errormsg('CRS must be 3 digit')
+        ecrs.config(bg='red')
         ok = False
-    #wsdl = ewsdl.get()
-    wsdl = '2021-11-01'
+    wsdl = ewsdl.get()
+
     if wsdl == '':
         errormsg('no WSDL version')
         ewsdl.config(bg='red')
         ok = False
     elif len(wsdl) != 10:
-        errormsg('the format of wsdl version is YYYY-MM-DD')
+        errormsg('the format of WSDL version is YYYY-MM-DD')
+        ewsdl.config(bg='red')
         ok = False
     if ok == True:
         ekey.config(bg='white')
@@ -215,10 +225,14 @@ bcrs['command'] = lambda url='https://www.nationalrail.co.uk/stations_destinatio
     url)
 bcrs.place(x=200, y=180)
 
+breg = tkinter.Button(root,text='register for a key')
+breg['command'] = lambda url='http://realtime.nationalrail.co.uk/OpenLDBWSRegistration/': webbrowser.open(
+    url)
+breg.place(x=200,y=210)
 bgit = tkinter.Button(root, text='GitHub repository')
 bgit['command'] = lambda url='https://github.com/ic1149/pyLDBWS': webbrowser.open(
     url)
-bgit.place(x=200, y=210)
+bgit.place(x=200, y=240)
 # send button
 bsend = tkinter.Button(root, text='send request!', command=check)
 bsend.place(x=20, y=250)
