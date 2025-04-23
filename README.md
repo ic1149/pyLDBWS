@@ -56,7 +56,7 @@ The program will check your entered information before sending the request.
   
 -the CRS (station code) is 3 upper case letters (although the program will automatically change it to upper case)
   
--list of CRS NOT AVAILABLE: https://www.nationalrail.co.uk/stations_destinations/48541.aspx
+-list of CRS NOT AVAILABLE ANYMORE: https://www.nationalrail.co.uk/stations_destinations/48541.aspx
 
  removed by national rail website renovation 
   
