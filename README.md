@@ -6,6 +6,10 @@
 
 ## JSON is used instead of SOAP
 
+and the whole thing has moved to the new rail data group
+
+## I am making new programs using the new system
+
 # pyLDBWS
 v1.0.0
 
@@ -52,7 +56,9 @@ The program will check your entered information before sending the request.
   
 -the CRS (station code) is 3 upper case letters (although the program will automatically change it to upper case)
   
--list of CRS: https://www.nationalrail.co.uk/stations_destinations/48541.aspx
+-list of CRS NOT AVAILABLE: https://www.nationalrail.co.uk/stations_destinations/48541.aspx
+
+ removed by national rail website renovation 
   
 -the format of WSDL version is YYYY-MM-DD
   
